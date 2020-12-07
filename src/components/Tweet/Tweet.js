@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { fetchUser } from './../../services/user.service'
+import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import unicorn from '../../assets/unnamed.png'
 
 const createStyles = makeStyles((theme) => ({
     textField: {
