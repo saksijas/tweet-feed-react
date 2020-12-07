@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import unicorn from '../../assets/unnamed.png'
+import unicorn from '../../assets/unicorn.png'
 import { Link } from 'react-router-dom'
 
 const createStyles = makeStyles((theme) => ({

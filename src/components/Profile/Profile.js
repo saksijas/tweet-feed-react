@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { fetchUser } from './../../services/user.service'
 import { makeStyles } from '@material-ui/core/styles'
-import unicorn from '../../assets/unnamed.png'
+import unicorn from '../../assets/unicorn.png'
 import Tweet from '../Tweet/Tweet'
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary'
 
