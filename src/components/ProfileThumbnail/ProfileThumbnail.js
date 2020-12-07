@@ -3,15 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import unicorn from '../../assets/unnamed.png';
 import Alert from "@material-ui/lab/Alert";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    "& .MuiTextField-root": {
-      margin: "0px 0px 15px 0px",
-    },
-    margin: "16px auto",
-    padding: "16px",
-    display: "inline-block"
-  },
+const createStyles = makeStyles((theme) => ({
+
   textField: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
@@ -33,13 +26,10 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     backgroundColor: "#95B8D1",
   },
-  button: {
-    display: "flex",
-  },
 }));
 
 export default function ProfileThumbnail(props) {
-  const classes = useStyles();
+  const classes = createStyles();
   const [profile, setProfile] = useState(undefined);
 
   useEffect(() => {
@@ -50,7 +40,7 @@ export default function ProfileThumbnail(props) {
   return (
     <div className={classes.container}>
       <img className={classes.image} src={unicorn} alt="Unicorn" />
-        {profile.username} follows haha
+        {profile.username} follows {profile.following.join(", ")}
     </div>
   );
 }
