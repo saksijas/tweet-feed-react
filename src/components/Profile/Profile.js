@@ -1,61 +1,61 @@
-import React, { useEffect, useState } from "react";
-import {
-  fetchUser,
-} from "./../../services/user.service";
-import { makeStyles } from "@material-ui/core/styles";
-import unicorn from '../../assets/unnamed.png';
-import Tweet  from '../Tweet/Tweet';
+import React, { useEffect, useState } from 'react'
+import { fetchUser } from './../../services/user.service'
+import { makeStyles } from '@material-ui/core/styles'
+import unicorn from '../../assets/unnamed.png'
+import Tweet from '../Tweet/Tweet'
 
 const createStyles = makeStyles((theme) => ({
-
     textField: {
-        display:"inline-block"
+        display: 'inline-block',
+        wordSpacing: '10px',
     },
     image: {
-        width: "20%",
+        width: '20%',
     },
     container: {
-      padding: "16px",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
+        padding: '16px',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
-  }));
+}))
 
 export default function Profile(props) {
-    const classes = createStyles();
-    const [user,setUser] = useState(undefined);
-    const [tweets, setTweets] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(undefined);
-    
+    const classes = createStyles()
+    const [user, setUser] = useState(undefined)
+    const [tweets, setTweets] = useState([])
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState(undefined)
+
     useEffect(() => {
         async function getUser() {
             try {
-                const { username }= props.match.params;
-                const result = await fetchUser(username);
-                setUser(result.data.user);
-                setTweets(result.data.tweets);
-                setLoading(false);
+                const { username } = props.match.params
+                const result = await fetchUser(username)
+                setUser(result.data.user)
+                setTweets(result.data.tweets)
+                setLoading(false)
             } catch (error) {
-                setError(error);
-                setLoading(true);
+                setError(error)
+                setLoading(true)
             }
         }
-          getUser();
-        }, []);
-        
+        getUser()
+    }, [])
+
     return (
         <div className={classes.container}>
             {!loading && (
                 <div>
                     <img className={classes.image} src={unicorn} alt="Unicorn" />
                     <h2 className={classes.textField}>
-                        {user.username} follows {user.following.join(", ")} 
+                        {user.username} follows {user.following.join(', ')}
                     </h2>
-                    {tweets.map((tweet) => <Tweet tweet={tweet}/>)}                    
+                    {tweets.map((tweet) => (
+                        <Tweet tweet={tweet} />
+                    ))}
                 </div>
             )}
         </div>
-    );
+    )
 }

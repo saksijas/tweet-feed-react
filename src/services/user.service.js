@@ -1,12 +1,11 @@
-import axios from "axios";
+import axios from 'axios'
 
-const API_URL = "http://localhost:4000/user/";
+const API_URL = 'http://localhost:4000/user/'
 
 export const fetchUser = async (username) => {
-  console.log(username);
-  return await axios.get(API_URL + username);
-};
+    return await axios.get(API_URL + username)
+}
 
 export const fetchUsers = async () => {
-  return await axios.get(API_URL);
-};
+    return await axios.get(API_URL)
+}
