@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import unicorn from '../../assets/unnamed.png'
-import Alert from '@material-ui/lab/Alert'
-import { BrowserRouter as Router, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const createStyles = makeStyles((theme) => ({
     textField: {

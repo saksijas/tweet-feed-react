@@ -3,6 +3,8 @@ import { fetchUser } from './../../services/user.service'
 import { makeStyles } from '@material-ui/core/styles'
 import unicorn from '../../assets/unnamed.png'
 import Tweet from '../Tweet/Tweet'
+import ErrorBoundary from '../ErrorBoundary/ErrorBoundary'
+
 
 const createStyles = makeStyles((theme) => ({
     textField: {
@@ -35,6 +37,7 @@ export default function Profile(props) {
                 setUser(result.data.user)
                 setTweets(result.data.tweets)
                 setLoading(false)
+                setError(undefined)
             } catch (error) {
                 setError(error)
                 setLoading(true)
@@ -55,6 +58,9 @@ export default function Profile(props) {
                         <Tweet tweet={tweet} />
                     ))}
                 </div>
+            )}
+            {error && (
+              <ErrorBoundary error = {error}></ErrorBoundary>
             )}
         </div>
     )
