@@ -5,7 +5,6 @@ import unicorn from '../../assets/unicorn.png'
 import Tweet from '../Tweet/Tweet'
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary'
 
-
 const createStyles = makeStyles((theme) => ({
     textField: {
         display: 'inline-block',
@@ -59,9 +58,7 @@ export default function Profile(props) {
                     ))}
                 </div>
             )}
-            {error && (
-              <ErrorBoundary error = {error}></ErrorBoundary>
-            )}
+            {error && <ErrorBoundary error={error}></ErrorBoundary>}
         </div>
     )
 }

@@ -6,7 +6,7 @@ import ProfileThumbnail from '../ProfileThumbnail/ProfileThumbnail'
 export default function ProfileList(props) {
     const [profiles, setProfiles] = useState([])
     const [loading, setLoading] = useState(true)
-    const [error, setError] = useState(undefined);
+    const [error, setError] = useState(undefined)
     useEffect(() => {
         async function getUsers() {
             try {
@@ -15,8 +15,8 @@ export default function ProfileList(props) {
                 setLoading(false)
                 setError(undefined)
             } catch (error) {
-              setError(error)
-              setLoading(true)
+                setError(error)
+                setLoading(true)
             }
         }
         getUsers()
@@ -29,9 +29,8 @@ export default function ProfileList(props) {
                         <ProfileThumbnail profile={profile} />
                     ))}{' '}
                 </div>
-            )}{error && (
-              <ErrorBoundary error = {error}></ErrorBoundary>
             )}
+            {error && <ErrorBoundary error={error}></ErrorBoundary>}
         </div>
     )
 }
