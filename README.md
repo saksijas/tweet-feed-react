@@ -8,16 +8,6 @@ This application uses React framework with Material UI library. It relies on sma
 
 ## Project Setup
 
-### Add .env file
-
-Copy this to you environment file
-
-```
-dbUrl="mongodb://localhost:27017/tweetFeed"
-url="mongodb://localhost:27017"
-dbName="tweetFeed"
-```
-
 ### Install dependencies
 
 ```
